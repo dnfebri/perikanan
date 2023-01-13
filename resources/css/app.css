@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-html {
+  @apply scroll-smooth;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+}
+
+.menu-nav {
+  @apply text-gray-700 rounded hover:bg-gray-100 sm:hover:bg-transparent sm:border-0 sm:hover:text-blue-700 sm:p-0 dark:text-gray-400 sm:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white sm:dark:hover:bg-transparent
+}
+
+.menu-nav-active {
+  @apply text-white bg-blue-700/80 sm:bg-transparent sm:text-blue-700 sm:p-0 sm:dark:text-white dark:bg-blue-600 sm:dark:bg-transparent
+}
+
+.hamburger-line {
+  @apply w-[30px] h-[2px] my-2 block bg-black;
+}
+
+.hamburger-active > span:nth-child(1) {
+  @apply rotate-45;
+}
+
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0;
+}
+
+.hamburger-active > span:nth-child(3) {
+  @apply -rotate-45;
+}
+
+.menu-open {
+  @apply h-[100vh];
+}
+
+.menu-close {
+  @apply h-[0vh];
+}

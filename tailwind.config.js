@@ -11,6 +11,9 @@ module.exports = {
     ],
 
     theme: {
+        container: {
+            center: true,
+        },
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
@@ -18,5 +21,8 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('flowbite/plugin')
+    ],
 };
