@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.scroll-html {
+  @apply scroll-smooth;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
     display: none;
-}
-
-.scroll-html {
-  @apply scroll-smooth;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
@@ -19,9 +19,26 @@
 }
 
 .menu-nav {
-  @apply text-gray-700 rounded hover:bg-gray-100 sm:hover:bg-transparent sm:border-0 sm:hover:text-blue-700 sm:p-0 dark:text-gray-400 sm:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white sm:dark:hover:bg-transparent
+  @apply text-brand-4 rounded md:hover:bg-transparent md:border-0 md:hover:text-brand-2 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent
 }
 
 .menu-nav-active {
-  @apply text-white bg-blue-700/80 sm:bg-transparent sm:text-blue-700 sm:p-0 sm:dark:text-white dark:bg-blue-600 sm:dark:bg-transparent
+  @apply text-brand-1 md:bg-transparent md:p-0 md:dark:text-white dark:bg-brand-1 md:dark:bg-transparent
+}
+
+.sidebar {
+  @apply absolute bottom-0 top-0 w-0 overflow-hidden 
+          md:static md:w-64
+}
+.sidebar-active {
+  @apply absolute bottom-0 top-0 w-64 overflow-hidden 
+          md:static md:w-0
+}
+
+.menu-sidebar {
+  @apply text-brand-4 hover:text-brand-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
+}
+
+.menu-sidebar-active {
+  @apply text-brand-3 hover:text-brand-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
 }

@@ -23,8 +23,8 @@
 <nav class="my-2 border-gray-200 dark:bg-gray-900 dark:border-gray-700">
   <div class="container flex flex-wrap items-center justify-between mx-auto relative">
     <a href="#" class="flex items-center ml-4">
-        <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 md:h-10" alt="Flowbite Logo" />
-        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+        {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 md:h-10" alt="Flowbite Logo" /> --}}
+        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">LOGO</span>
     </a>
     <div class="hidden  w-full md:block md:w-auto md:mr-4">
       <ul class="flex flex-col py-4 mt-4 border border-gray-100 rounded-lg bg-gray-50/80 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
@@ -74,9 +74,10 @@
         </li> --}}
       </ul>
     </div>
+    
   </div>
 
-  <div class="md:hidden fixed bottom-0 right-0 left-0 flex items-center px-6 overflow-hidden bg-white border border-blue-700 rounded-t-2xl w-full">
+  <div class="md:hidden fixed bottom-0 right-0 left-0 flex items-center px-6 overflow-hidden bg-white border border-brand-1 rounded-t-2xl w-full">
     <div class="relative flex items-center justify-around w-full" id="navMobile">
       @foreach ($dataMenu as $idx => $menu)
         @if(explode("/",$menu->url)[1] === $urlActive) <span class="hidden" id="navAcctive" data-navAcctive="{{$idx}}"></span> @endif
@@ -91,9 +92,9 @@
       @endforeach
     </div>
 
-    <div id="indicator" class="absolute w-6 h-8 transition-all duration-300 bg-blue-700 rounded-full -top-4 left-0 right-0">
-      <div style="box-shadow: 0 -10px 0 #1A56DB" class="absolute top-1/2 w-5 h-5 bg-white -left-4 rounded-tr-3xl"></div>
-      <div style="box-shadow: 0 -10px 0 #1A56DB" class="absolute top-1/2 w-5 h-5 bg-white -right-4 rounded-tl-3xl"></div>
+    <div id="indicator" class="absolute w-6 h-8 transition-all duration-300 bg-brand-1 rounded-full -top-4 left-0 right-0">
+      <div style="box-shadow: 0 -10px 0 #173E65" class="absolute top-1/2 w-5 h-5 bg-white -left-4 rounded-tr-3xl"></div>
+      <div style="box-shadow: 0 -10px 0 #173E65" class="absolute top-1/2 w-5 h-5 bg-white -right-4 rounded-tl-3xl"></div>
     </div>
   </div>
 </nav>

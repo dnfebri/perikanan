@@ -5,12 +5,11 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () { return view('welcome'); });
 Route::get('/', function () { return view('index'); });
-Route::get('/product', function () { return view('product.index'); });
-Route::get('/product/{asd}', function () { return view('product.index'); });
-Route::get('/about', function () { return view('about'); });
+Route::get('/product', function () { return view('product'); });
+Route::get('/about-us', function () { return view('about-us'); });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
