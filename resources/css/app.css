@@ -42,3 +42,18 @@
 .menu-sidebar-active {
   @apply text-brand-3 hover:text-brand-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
 }
+
+.section-2-col {
+  @apply py-12 px-4 gap-4 flex flex-col-reverse lg:grid grid-cols-2
+}
+
+.input-transparent {
+  /* background: blue; */
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+}

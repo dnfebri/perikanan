@@ -24,7 +24,7 @@
       "menu" => [
         (object)[
           "name" => "Kategory",
-          "url" => "#"
+          "url" => "/admin/product/category"
         ]
       ]
     ],
@@ -60,7 +60,7 @@
             <ul id="{{'dropdown-example' . $key}}" class="hidden py-2 space-y-2">
               @foreach($sidebar->menu as $idx => $menu)
                 <li>
-                  <a href="#" class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-12 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{$menu->name}}</a>
+                  <a href="{{ $menu->url }}" class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-12 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{$menu->name}}</a>
                 </li>
               @endforeach
             </ul>
