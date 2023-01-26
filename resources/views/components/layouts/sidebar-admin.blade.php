@@ -38,6 +38,16 @@
         ]
       ]
     ],
+    (object)[
+      "icon" => "fa-house",
+      "label" => "Gallery",
+      "menu" => "/gallery"
+    ],
+    (object)[
+      "icon" => "fa-house",
+      "label" => "Faqs",
+      "menu" => "/faqs"
+    ],
   ];
 @endphp
 
