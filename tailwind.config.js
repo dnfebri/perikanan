@@ -24,6 +24,7 @@ module.exports = {
                 "brand-3": "#017DBB",
                 "brand-4": "#91AEBE",
                 "brand-5": "#CDEFF0",
+                "secondary-1": "#FFD600",
             }
         },
     },

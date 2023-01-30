@@ -11,8 +11,8 @@
     </div>
     <div class="absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center">
       <div class="text-center font-bold">
-        <h1 class="text-5xl">NUSANTARA SEA</h1>
-        <p class="my-4 text-brand-1">Premium Frozen Seafood</p>
+        <h1 class="text-2xl sm:text-5xl">NUSANTARA SEA</h1>
+        <p class="my-4 text-sm sm:text-base text-brand-1">Premium Frozen Seafood</p>
         <div class="mt-10">
           <a href="{{ url('home', []) }}" onclick="callLoading()" 
             class="py-2 px-6 border border-brand-1 rounded-lg drop-shadow-lg text-brand-1 

@@ -1,7 +1,7 @@
 @php
   // take the url path into an array "/", array[1] for menu
   $path = explode("/",$_SERVER['REQUEST_URI']);
-  $urlActive = $path[1];
+  $urlActive = $path[2] ?? $path[1];
   $dataSidebar = [
     (object)[
       "icon" => "fa-house",
@@ -25,6 +25,10 @@
         (object)[
           "name" => "Kategory",
           "url" => "/admin/product/category"
+        ],
+        (object)[
+          "name" => "Product",
+          "url" => "/admin/product"
         ]
       ]
     ],
@@ -39,18 +43,17 @@
       ]
     ],
     (object)[
-      "icon" => "fa-house",
+      "icon" => "fa-images",
       "label" => "Gallery",
-      "menu" => "/gallery"
+      "menu" => "/admin/gallery"
     ],
     (object)[
-      "icon" => "fa-house",
+      "icon" => "fa-circle-question",
       "label" => "Faqs",
-      "menu" => "/faqs"
+      "menu" => "/admin/faqs"
     ],
   ];
 @endphp
-
 <aside class="sidebar transition-all duration-300" aria-label="Sidebar" id="sidebar-admin">
   <div class="px-3 py-4 overflow-y-auto no-scrollbar rounded bg-gray-50 dark:bg-gray-800 h-full">
     <ul class="space-y-2">
@@ -70,17 +73,21 @@
             <ul id="{{'dropdown-example' . $key}}" class="hidden py-2 space-y-2">
               @foreach($sidebar->menu as $idx => $menu)
                 <li>
-                  <a href="{{ $menu->url }}" class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-12 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{$menu->name}}</a>
+                  <a href="{{ url($menu->url) }}" class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-12 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{$menu->name}}</a>
                 </li>
               @endforeach
             </ul>
           @else
-            <a href="{{$sidebar->menu}}" class="flex items-center w-full p-2 text-base font-normal transition duration-75 rounded-lg group @if (explode("/",$sidebar->menu)[1] === $urlActive) menu-sidebar-active @else menu-sidebar @endif" >
+            @php
+              $linkMenu = explode("/",$sidebar->menu);
+              $linkUrl = $linkMenu[2] ?? $linkMenu[1]
+            @endphp
+            <a href="{{ url($sidebar->menu) }}" class="flex items-center w-full p-2 text-base font-normal transition duration-75 rounded-lg group @if ($linkUrl === $urlActive) menu-sidebar-active @else menu-sidebar @endif" >
               <i class="fa-solid {{$sidebar->icon}} text-lg
                 transition duration-75
                 ">
               </i>
-              <span class="flex-1 ml-1 text-left whitespace-nowrap font-bold" sidebar-toggle-item>{{$sidebar->label}}</span>
+              <span class="flex-1 ml-2 text-left whitespace-nowrap font-bold" sidebar-toggle-item>{{$sidebar->label}}</span>
             </a>
           @endif
         </li>

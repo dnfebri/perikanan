@@ -24,18 +24,18 @@
       "url" => "/gallery",
     ],
     (object)[
-      "icon" => "fa-address-book",
-      "label" => "Contact",
-      "url" => "/contact",
-    ],
-    (object)[
       "icon" => "fa-circle-question",
       "label" => "Faqs",
       "url" => "/faqs",
     ],
+    (object)[
+      "icon" => "fa-address-book",
+      "label" => "Contact",
+      "url" => "/contact",
+    ],
   ];
 @endphp
-<nav class="border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+<nav class="border-gray-200 dark:bg-gray-900 dark:border-gray-700 bg-white/80">
   <div class="container h-12 md:min-h-[4rem] flex items-center mx-auto relative overflow-hidden">
     {{-- <a href="#" class="flex items-center ml-4">
         <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 md:h-10" alt="Flowbite Logo" />

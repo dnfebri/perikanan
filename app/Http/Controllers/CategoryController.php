@@ -14,7 +14,7 @@ class CategoryController extends Controller
         }
         $data = Category::where('isDelete', false)->get();
         // dd($data);
-        return view("admin/product/index", compact("data"));
+        return view("admin/product/category", compact("data"));
     }
 
     public function save(Request $request)

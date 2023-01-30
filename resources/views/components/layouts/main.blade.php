@@ -22,8 +22,11 @@
             </div>
         </header>
     @endif
-    {{$slot}}
+    <div class="min-h-screen">
+      {{$slot}}
+    </div>
   </div>
+  <x-layouts.footer/>
   @stack("script")
 </body>
 </html>

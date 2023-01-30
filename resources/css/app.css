@@ -23,7 +23,7 @@
 }
 
 .menu-nav-active {
-  @apply text-brand-1 md:text-brand-5 md:bg-transparent md:p-0 md:dark:text-white dark:bg-brand-1 md:dark:bg-transparent md:border-b-2 border-brand-1 md:border-brand-5
+  @apply text-brand-1 md:text-black md:bg-transparent md:p-0 md:dark:text-white dark:bg-brand-1 md:dark:bg-transparent md:border-b-2 border-brand-1 md:border-black
 }
 
 .sidebar {
@@ -56,4 +56,8 @@
   margin-bottom: 0;
   padding-bottom: 0;
   padding-top: 0;
+}
+
+.btn-add {
+  @apply py-1.5 px-4 text-white font-medium bg-green-400 rounded-md hover:bg-green-500 transition-all duration-300
 }
