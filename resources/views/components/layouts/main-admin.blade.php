@@ -8,6 +8,7 @@
   <script src="{{ url('js/flowbite.min.js') }}"></script>
   <link rel="stylesheet" href="{{ url('fontawesome/css/all.min.css') }}">
   <script src="{{ url('fontawesome/js/all.min.js') }}"></script>
+  @stack("style")
   <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 <body>

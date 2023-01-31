@@ -5,7 +5,7 @@
       <h1>Gallery is Still Empty</h1>
     </div>
     @else
-      <x-page.gallery :gallery="$data"/>
+      <x-page.gallery :gallery="$data" :auth="false"/>
     @endif
   </div>
 </x-layouts.main>

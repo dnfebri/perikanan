@@ -12,7 +12,7 @@
       <h1>Gallery is Still Empty</h1>
     </div>
     @else
-    <x-page.gallery :gallery="$data" />
+    <x-page.gallery :gallery="$data" :auth="Auth::user()" />
     @endif
   </div>
 </x-layouts-main-admin>
