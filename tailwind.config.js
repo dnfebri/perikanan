@@ -27,6 +27,10 @@ module.exports = {
                 "secondary-1": "#FFD600",
             }
         },
+        fontFamily: {
+          'Poppins': ['Poppins', 'sans-serif'],
+          'sans-serif': ['sans-serif'],
+        }
     },
 
     plugins: [

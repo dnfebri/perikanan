@@ -35,13 +35,8 @@
     ],
   ];
 @endphp
-<nav class="border-gray-200 dark:bg-gray-900 dark:border-gray-700 bg-white/80">
+<nav class="border-gray-200 dark:bg-gray-900 dark:border-gray-700 fixed top-0 right-0 left-0 z-30 transition-all duration-500" id="navbar">
   <div class="container h-12 md:min-h-[4rem] flex items-center mx-auto relative overflow-hidden">
-    {{-- <a href="#" class="flex items-center ml-4">
-        <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 md:h-10" alt="Flowbite Logo" />
-        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">LOGO</span>
-    </a> --}}
-    <img src="{{ url('images/bgHeader.png') }}" class="absolute top-0 bottom-0 right-0 left-0 h-full w-full object-cover object-bottom  brightness-80 -z-10" alt="Navbar" />
     <div class="w-full">
       <ul class="
         flex flex-col justify-center items-center font-bold
@@ -58,48 +53,11 @@
           @if($key === 2)
             <li>
               <a href="/" class="flex items-center mx-4">
-                {{-- <span class="text-xl font-semibold whitespace-nowrap dark:text-white">LOGO</span> --}}
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-10" alt="Flowbite Logo" />
               </a>
             </li>
           @endif
         @endforeach
-        {{-- <li>
-            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Dropdown <svg class="w-4 h-4 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
-            <!-- Dropdown menu -->
-            <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                  <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                  </li>
-                  <li aria-labelledby="dropdownNavbarLink">
-                    <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dropdown<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button>
-                    <div id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700">
-                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
-                          <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Overview</a>
-                          </li>
-                          <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My downloads</a>
-                          </li>
-                          <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Billing</a>
-                          </li>
-                          <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Rewards</a>
-                          </li>
-                        </ul>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                  </li>
-                </ul>
-                <div class="py-1">
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign out</a>
-                </div>
-            </div>
-        </li> --}}
       </ul>
     </div>
     
@@ -148,5 +106,17 @@
       function navLoad() {
         indicator.style.margin = `0px 0px 0px ${(wNav * NAcctive + 12) - (wNav / 2)}px`;
       }
+  </script>
+  <script>
+    const navbar = document.querySelector('#navbar');
+    window.onscroll = function () {
+      const fixedNav = navbar.offsetTop;
+
+      if (window.pageYOffset > fixedNav + 100) {
+        navbar.classList.add('bg-white');
+      } else {
+        navbar.classList.remove('bg-white');
+      }
+    }
   </script>
 @endpush
