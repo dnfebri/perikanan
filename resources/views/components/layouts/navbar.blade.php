@@ -25,13 +25,13 @@
     ],
     (object)[
       "icon" => "fa-circle-question",
-      "label" => "Faqs",
-      "url" => "/faqs",
+      "label" => "Faq",
+      "url" => "/faq",
     ],
     (object)[
       "icon" => "fa-address-book",
       "label" => "Contact",
-      "url" => "/contact",
+      "url" => "/inquiry",
     ],
   ];
 @endphp

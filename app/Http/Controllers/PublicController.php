@@ -31,4 +31,14 @@ class PublicController extends Controller
     {
         return view('gallery', ["data" => Gallery::all()->toArray()]);
     }
+
+    public function inquiry()
+    {
+        return view('inquiry');
+    }
+
+    public function faq()
+    {
+        return view('faq');
+    }
 }

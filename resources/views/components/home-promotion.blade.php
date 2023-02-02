@@ -1,5 +1,5 @@
 <div class="my-20 grid lg:grid-cols-2 gap-8">
-  <div class="flex flex-col max-w-lg mx-auto space-y-4">
+  <div class="flex flex-col max-w-lg mx-auto space-y-4" data-aos="fade-right">
     <div class="">
       <img src="{{ url('/images/homeImg1.png') }}" alt="{{config('app.name', 'Perikanan')}}">
     </div>
@@ -13,7 +13,7 @@
       </ul>
     </div>
   </div>
-  <div class="grid lg:flex lg:flex-col-reverse max-w-lg mx-auto gap-4">
+  <div class="grid lg:flex lg:flex-col-reverse max-w-lg mx-auto gap-4" data-aos="fade-left">
     <div class="">
       <img src="{{ url('/images/homeImg2.png') }}" alt="{{config('app.name', 'Perikanan')}}">
     </div>

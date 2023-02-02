@@ -7,6 +7,7 @@
   @vite('resources/css/app.css')
   <link rel="stylesheet" href="{{ url('fontawesome/css/all.min.css') }}">
   <link rel="stylesheet" href="{{ url('/css/style.css') }}">
+  <link rel="stylesheet" href="/aos/dist/aos.css" />
   <script src="{{ url('js/flowbite.min.js') }}"></script>
   <script src="{{ url('fontawesome/js/all.min.js') }}"></script>
   @stack("style")
@@ -30,5 +31,12 @@
   </div>
   <x-layouts.footer/>
   @stack("script")
+  <script src="/aos/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 3000,
+      offset: 0
+    });
+  </script>
 </body>
 </html>

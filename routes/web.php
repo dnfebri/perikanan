@@ -11,6 +11,8 @@ Route::get('/home', [PublicController::class, 'home']);
 Route::get('/product', [PublicController::class, 'product']);
 Route::get('/about-us', [PublicController::class, 'aboutUs']);
 Route::get('/gallery', [PublicController::class, 'gallery']);
+Route::get('/faq', [PublicController::class, 'faq']);
+Route::get('/inquiry', [PublicController::class, 'inquiry']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

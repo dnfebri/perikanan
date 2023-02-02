@@ -5,7 +5,12 @@
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
   @isset($gallery)
   @foreach ($gallery as $key => $row)
-    <div class="group/item h-72 @if($row["columns"] === 2) sm:col-span-2 @endif border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden relative">
+    <div 
+      class="group/item h-72 
+        @if($row["columns"] === 2) sm:col-span-2 @endif 
+        border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden relative"
+      data-aos="fade-up"
+    >
       <img class="w-full h-full object-cover object-center" src="{{ url('images/' . $row["image"]) }}" alt="{{ $row["id"] }}" />
       <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable"
         class="invisible absolute top-0 bottom-0 w-full p-4 cursor-pointer group-hover/item:visible" onclick="imgGallery(this)" img="{{ url('images/' . $row["image"]) }}"

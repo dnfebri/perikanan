@@ -38,17 +38,7 @@
       <div class="py-4 px-4 grid md:grid-cols-3 gap-2 lg:gap-6">
         <div>
           <h1 class="text-lg text-secondary-1 font-bold">Follow Us</h1>
-          <div class="text-xl py-2 flex gap-4">
-            <div class="bg-white text-brand-2 h-8 w-8 flex justify-center items-center rounded-full">
-              <i class="fa-brands fa-facebook-f"></i>
-            </div>
-            <div class="bg-white text-brand-2 h-8 w-8 flex justify-center items-center rounded-full">
-              <i class="fa-brands fa-instagram"></i>
-            </div>
-            <div class="bg-white text-brand-2 h-8 w-8 flex justify-center items-center rounded-full">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </div>
-          </div>
+          <x-link-sosmed/>
         </div>
         <div class="md:px-2">
           <h1 class="text-lg text-secondary-1 font-bold">Contact Us</h1>
