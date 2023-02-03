@@ -49,8 +49,8 @@
     ],
     (object)[
       "icon" => "fa-circle-question",
-      "label" => "Faqs",
-      "menu" => "/admin/faqs"
+      "label" => "Faq",
+      "menu" => "/admin/faq"
     ],
   ];
 @endphp

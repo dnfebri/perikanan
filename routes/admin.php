@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,5 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::post("/product/category", [CategoryController::class, "save"]);
     Route::put("/product/category/{id}", [CategoryController::class, "update"]);
     Route::delete("/product/category/{id}", [CategoryController::class, "destroy"]);
+
+    Route::get("/faq", [FaqController::class, "index"]);
+    Route::post("/faq", [FaqController::class, "save"]);
   });
 });
