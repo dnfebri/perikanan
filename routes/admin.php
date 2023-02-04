@@ -33,6 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::delete("/product/category/{id}", [CategoryController::class, "destroy"]);
 
     Route::get("/faq", [FaqController::class, "index"]);
+    Route::get("/faq/{id}", [FaqController::class, "edit"]);
     Route::post("/faq", [FaqController::class, "save"]);
+    Route::put("/faq/{id}", [FaqController::class, "update"]);
+    Route::delete("/faq", [FaqController::class, "destroy"]);
   });
 });

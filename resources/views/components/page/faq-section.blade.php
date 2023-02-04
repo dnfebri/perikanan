@@ -1,23 +1,3 @@
-@php
-  $data = [
-    [
-      "questions" => "1 Berapakah biaya keanggotaan di Urban Athletes?",
-      "answer" => "Biaya keanggotaan berbeda mengikuti paket yang sesuai dengan pilihan Anda. Silahkan hubungi club pilihan Anda dan staf kami akan menjelaskan berbagai opsi dengan senang hati."
-    ],
-    [
-      "questions" => "2 Berapakah biaya keanggotaan di Urban Athletes?",
-      "answer" => "Biaya keanggotaan berbeda mengikuti paket yang sesuai dengan pilihan Anda. Silahkan hubungi club pilihan Anda dan staf kami akan menjelaskan berbagai opsi dengan senang hati."
-    ],
-    [
-      "questions" => "3 Berapakah biaya keanggotaan di Urban Athletes?",
-      "answer" => "Biaya keanggotaan berbeda mengikuti paket yang sesuai dengan pilihan Anda. Silahkan hubungi club pilihan Anda dan staf kami akan menjelaskan berbagai opsi dengan senang hati."
-    ],
-    [
-      "questions" => "4 Berapakah biaya keanggotaan di Urban Athletes?",
-      "answer" => "Biaya keanggotaan berbeda mengikuti paket yang sesuai dengan pilihan Anda. Silahkan hubungi club pilihan Anda dan staf kami akan menjelaskan berbagai opsi dengan senang hati."
-    ],
-];
-@endphp
 <div class="container lg:px-12 min-h-screen pt-4">
   <form action="">
     <div class="flex justify-center items-center my-4">
@@ -40,119 +20,83 @@
   </div>
   <div class="grid grid-cols-1 gap-4 md:grid-cols-3 text-sm mt-4">
     <div class="space-y-6">
-      @foreach ($data as $key => $item)
+      @foreach ($faq as $key => $item)
       @if ($key % 3 === 0)
-        <div class="border border-black m-1 px-2 py-4 cursor-pointer">
-          <div class="flex justify-between items-center space-x-4" id="card-faq">
-            <h2 class="font-AmpleSoftBold">{{ $item["questions"] }}</h2>
-            <span class="font-AmpleSoftBold text-xl rotate-90 transition-all duration-300">&#8711;</span>
+        <div class="border-2 border-black m-1 px-2 py-4 cursor-pointer" data-aos="fade-up">
+          <div class="font-black flex justify-between items-center space-x-4" id="card-faq">
+            <h2 class="">{{ $item["questions"] }}</h2>
+            <span class=" text-xl rotate-90 transition-all duration-300">&#8711;</span>
           </div>
           <div id="card-detail" class="hidden">
             <div class="border-t border-neutral-700 my-2"></div>
-            <p>{{ $item["answer"] }}</p>
+            <div class="view-answer">{!! $item["answer"] !!}</div>
           </div>
+          @if ($auth)
+            <div class="-mb-2 mt-2">
+              <a href="{{ url('admin/faq/' . $item["id"]) }}" class="py-0.5 px-4 rounded-md drop-shadow-xl hover:drop-shadow-2xl bg-blue-700 text-white hover:bg-blue-600 hover:text-black transition-all duration-300">Edit</a>
+              <a type="button" class="py-0.5 px-4 rounded-md drop-shadow-xl hover:drop-shadow-2xl bg-red-700 text-white hover:bg-red-600 hover:text-black transition-all duration-300" onclick="deleteKonfirm(this)">Delete</a>
+              <form action="{{ url('admin/faq?id=' . $item['id'] ) }}" method="post">
+                @csrf
+                @method('delete')
+              </form>
+            </div>
+          @endif
         </div>
       @endif
       @endforeach
     </div>
     <div class="space-y-6">
-      @foreach ($data as $key => $item)
+      @foreach ($faq as $key => $item)
       @if ($key % 3 === 1)
-        <div class="border border-black m-1 px-2 py-4 cursor-pointer">
-          <div class="flex justify-between items-center space-x-4" id="card-faq">
-            <h2 class="font-AmpleSoftBold">{{ $item["questions"] }}</h2>
-            <span class="font-AmpleSoftBold text-xl rotate-90 transition-all duration-300">&#8711;</span>
+        <div class="border-2 border-black m-1 px-2 py-4 cursor-pointer" data-aos="fade-up">
+          <div class="font-black flex justify-between items-center space-x-4" id="card-faq">
+            <h2 class="">{{ $item["questions"] }}</h2>
+            <span class=" text-xl rotate-90 transition-all duration-300">&#8711;</span>
           </div>
           <div id="card-detail" class="hidden">
             <div class="border-t border-neutral-700 my-2"></div>
-            <p>{{ $item["answer"] }}</p>
+            <div class="view-answer">{!! $item["answer"] !!}</div>
           </div>
+          @if ($auth)
+            <div class="-mb-2 mt-2">
+              <a href="{{ url('admin/faq/' . $item["id"]) }}" class="py-0.5 px-4 rounded-md drop-shadow-xl hover:drop-shadow-2xl bg-blue-700 text-white hover:bg-blue-600 hover:text-black transition-all duration-300">Edit</a>
+              <a type="button" class="py-0.5 px-4 rounded-md drop-shadow-xl hover:drop-shadow-2xl bg-red-700 text-white hover:bg-red-600 hover:text-black transition-all duration-300" onclick="deleteKonfirm(this)">Delete</a>
+              <form action="{{ url('admin/faq?id=' . $item['id'] ) }}" method="post">
+                @csrf
+                @method('delete')
+              </form>
+            </div>
+          @endif
         </div>
       @endif
       @endforeach
     </div>
     <div class="space-y-6">
-      @foreach ($data as $key => $item)
+      @foreach ($faq as $key => $item)
       @if ($key % 3 === 2)
-        <div class="border border-black m-1 px-2 py-4 cursor-pointer">
-          <div class="flex justify-between items-center space-x-4" id="card-faq">
-            <h2 class="font-AmpleSoftBold">{{ $item["questions"] }}</h2>
-            <span class="font-AmpleSoftBold text-xl rotate-90 transition-all duration-300">&#8711;</span>
+        <div class="border-2 border-black m-1 px-2 py-4 cursor-pointer" data-aos="fade-up">
+          <div class="font-black flex justify-between items-center space-x-4" id="card-faq">
+            <h2 class="">{{ $item["questions"] }}</h2>
+            <span class=" text-xl rotate-90 transition-all duration-300">&#8711;</span>
           </div>
           <div id="card-detail" class="hidden">
             <div class="border-t border-neutral-700 my-2"></div>
-            <p>{{ $item["answer"] }}</p>
+            <div class="view-answer">{!! $item["answer"] !!}</div>
           </div>
+          @if ($auth)
+            <div class="-mb-2 mt-2">
+              <a href="{{ url('admin/faq/' . $item["id"]) }}" class="py-0.5 px-4 rounded-md drop-shadow-xl hover:drop-shadow-2xl bg-blue-700 text-white hover:bg-blue-600 hover:text-black transition-all duration-300">Edit</a>
+              <a type="button" class="py-0.5 px-4 rounded-md drop-shadow-xl hover:drop-shadow-2xl bg-red-700 text-white hover:bg-red-600 hover:text-black transition-all duration-300" onclick="deleteKonfirm(this)">Delete</a>
+              <form action="{{ url('admin/faq?id=' . $item['id'] ) }}" method="post">
+                @csrf
+                @method('delete')
+              </form>
+            </div>
+          @endif
         </div>
       @endif
       @endforeach
     </div>
-
-
-    {{-- <div>
-      <div class="border border-black m-1 px-2 py-4 cursor-pointer">
-        <div class="flex justify-between items-center space-x-4" id="card-faq">
-          <h2 class="font-AmpleSoftBold">Bagaimana cara pembayaran iuran keanggotaan di Urban Athletes?</h2>
-          <span class="font-AmpleSoftBold text-xl rotate-90">&#8711;</span>
-        </div>
-        <div id="card-detail" class="hidden">
-          <div class="border-t border-neutral-700 my-2"></div>
-          <p>Kami menerima pembayaran melalui auto debit dari debit dan kartu kredit. Pembayaran sekaligus di awal termin serta pembayaran di tempat juga tersedia melalui customer service  kami</p>
-        </div>
-      </div>
-      <div class="border border-black m-1 px-2 py-4 cursor-pointer">
-        <div class="flex justify-between items-center space-x-4" id="card-faq">
-          <h2 class="font-AmpleSoftBold">Apakah ada biaya tambahan setelah saya bergabung dengan Urban Athletes?</h2>
-          <span class="font-AmpleSoftBold text-xl rotate-90">&#8711;</span>
-        </div>
-        <div id="card-detail" class="hidden">
-          <div class="border-t border-neutral-700 my-2"></div>
-          <p>Tidak. Tapi apabila Anda ingin memaksimalkan latihan Anda dalam waktu singkat, kami merekomendasikan Anda program Pelatih Pribadi (Personal Training). Anda juga bisa memanfaatkan kelas-kelas fitness atau berbagai peralatan berstandar internasional yang tersedia di klub kami. Anda juga berhak menggunakan berbagai fasilitas seperti air minum dan loker serta ruang mandi dengan sabun dan shampoo gratis.</p>
-        </div>
-      </div>
-      <div class="border border-black m-1 px-2 py-4 cursor-pointer">
-        <div class="flex justify-between items-center space-x-4" id="card-faq">
-          <h2 class="font-AmpleSoftBold">Kemana saya harus menyampaikan pertanyaan terkait keanggotaan saya?</h2>
-          <span class="font-AmpleSoftBold text-xl rotate-90">&#8711;</span>
-        </div>
-        <div id="card-detail" class="hidden">
-          <div class="border-t border-neutral-700 my-2"></div>
-          <p>Kami akan dengan senang hati melayani pertanyaan dan masukkan Anda. Apabila Anda ingin berbicara langsung dengan management kami, silakan beritahu customer service di klub dan Anda akan segera disambungkan dengan Club Manager kami. Masing-masing Club Manager bertugas untuk memastikan Anda mendapatkan pelayanan terbaik. </p>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="border border-black m-1 px-2 py-4 cursor-pointer">
-        <div class="flex justify-between items-center space-x-4" id="card-faq">
-          <h2 class="font-AmpleSoftBold">Berapakah batas usia untuk bisa bergabung di Urban Athletes?</h2>
-          <span class="font-AmpleSoftBold text-xl rotate-90">&#8711;</span>
-        </div>
-        <div id="card-detail" class="hidden">
-          <div class="border-t border-neutral-700 my-2"></div>
-          <p>Batas usia minimal untuk bergabung adalah 18 tahun ke atas dan kami akan memperkenankan usia di bawah 18 tahun apabila di bawah supervisi personal trainer. Seluruh kesepakatan kontrak dalam keanggotaan usia di bawah 18 tahun harus mendapat izin tertulis dari orang tua atau wali.</p>
-        </div>
-      </div>
-      <div class="border border-black m-1 px-2 py-4 cursor-pointer">
-        <div class="flex justify-between items-center space-x-4" id="card-faq">
-          <h2 class="font-AmpleSoftBold">Apakah saya bisa berlatih di seluruh cabang Urban Athletes?</h2>
-          <span class="font-AmpleSoftBold text-xl rotate-90">&#8711;</span>
-        </div>
-        <div id="card-detail" class="hidden">
-          <div class="border-t border-neutral-700 my-2"></div>
-          <p>Ya, Anda bisa mengakses semua cabang Urban Athletes selama anda memiliki tipe membership All Club.</p>
-        </div>
-      </div>
-      <div class="border border-black m-1 px-2 py-4 cursor-pointer">
-        <div class="flex justify-between items-center space-x-4" id="card-faq">
-          <h2 class="font-AmpleSoftBold">Bagaimana cara memperbaharui informasi di keanggotaan saya?</h2>
-          <span class="font-AmpleSoftBold text-xl rotate-90">&#8711;</span>
-        </div>
-        <div id="card-detail" class="hidden">
-          <div class="border-t border-neutral-700 my-2"></div>
-          <p>Customer Service kami akan dengan senang hati membantu Anda memperbaharui data-data pada keanggotaan Anda.</p>
-        </div>
-      </div>
-    </div> --}}
   </div>
 </div>
 @push('script')
@@ -171,5 +115,12 @@
         cardFaq.nextElementSibling.classList.remove('hidden');
       })
     });
+
+    const deleteKonfirm = (el) => {
+      const hapus = confirm("apakah Anda yakin ?");
+      if (hapus) {
+        el.nextElementSibling.submit();
+      }
+    }
   </script>
 @endpush

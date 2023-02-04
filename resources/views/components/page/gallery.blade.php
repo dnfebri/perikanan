@@ -16,9 +16,9 @@
         class="invisible absolute top-0 bottom-0 w-full p-4 cursor-pointer group-hover/item:visible" onclick="imgGallery(this)" img="{{ url('images/' . $row["image"]) }}"
       >
         @if ($auth)
-          <span class="flex">
+          <span class="flex space-x-2">
             <a href="{{ url('admin/gallery/' . $row["slug"]) }}" class="btn-edit z-10">Detail</a>
-            <p type="submit" class="btn-delete" onclick="deleteImageKonfirm(this)">Delete</p>
+            <a type="button" class="btn-delete" onclick="deleteImageKonfirm(this)">Delete</a>
             <form action="{{ url('admin/gallery?id=' . $row['id'] ) }}" method="post">
               @csrf
               @method('delete')

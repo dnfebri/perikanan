@@ -31,7 +31,7 @@
           md:static md:w-64
 }
 .sidebar-active {
-  @apply absolute bottom-0 top-0 w-64 overflow-hidden 
+  @apply absolute bottom-0 top-0 w-64 overflow-hidden
           md:static md:w-0
 }
 
@@ -69,4 +69,14 @@
 }
 .btn-outline {
   @apply text-gray-100 hover:text-secondary-1 border-2 border-gray-200 hover:border-secondary-1 focus:ring-2 focus:outline-none focus:ring-gray-100 font-medium text-sm px-5 py-2.5 text-center dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800 transition-all duration-300
+}
+
+.ck .ck-editor__main > .ck-rounded-corners {
+  @apply pl-8
+}
+.view-answer ol {
+  @apply ml-4 list-decimal my-2
+}
+.view-answer ul {
+  @apply ml-5 list-disc my-2
 }

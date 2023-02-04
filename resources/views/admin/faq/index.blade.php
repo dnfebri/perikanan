@@ -56,17 +56,14 @@
             </div>
             <div class="relative z-0 w-full mb-6 group">
               <Label class="block">Answer :</Label>
-              {{-- <textarea name="answer" id="answer" cols="30" rows="10"></textarea> --}}
-              {{-- <textarea class="ckeditor form-control" name="wysiwyg-editor" value="asd"></textarea> --}}
               <textarea name="answer" id="editor"></textarea>
             </div>
           </div>
           <!-- Modal footer -->
           <div
             class="flex justify-end items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-            <button data-modal-hide="staticModal" type="submit"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
-              Save</button>
+            <button type="submit"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
             <button data-modal-hide="staticModal" type="button"
               class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
           </div>
@@ -80,10 +77,28 @@
     <script>
       ClassicEditor
         .create(document.querySelector('#editor'), {
-          removePlugins: ['Heading'],
-          toolbar: ['bold', 'italic', 'underline'
-            'bulletedList', 'numberedList', 'blockQuote'
-          ]
+        removePlugins: [ 'Heading' ],
+          toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+          // heading: {
+          //   options: [{
+          //       model: 'paragraph',
+          //       title: 'Paragraph',
+          //       class: 'ck-heading_paragraph'
+          //     },
+          //     {
+          //       model: 'heading1',
+          //       view: 'h1',
+          //       title: 'Heading 1',
+          //       class: 'ck-heading_heading1'
+          //     },
+          //     {
+          //       model: 'heading2',
+          //       view: 'h2',
+          //       title: 'Heading 2',
+          //       class: 'ck-heading_heading2'
+          //     }
+          //   ]
+          // }
         })
         .catch(error => {
           console.error(error);

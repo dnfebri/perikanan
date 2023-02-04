@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,7 @@ class PublicController extends Controller
 
     public function faq()
     {
-        return view('faq');
+        $data = Faq::all()->toArray();
+        return view('faq', ["data" => $data]);
     }
 }

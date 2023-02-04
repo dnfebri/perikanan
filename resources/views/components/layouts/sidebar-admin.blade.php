@@ -54,7 +54,7 @@
     ],
   ];
 @endphp
-<aside class="sidebar transition-all duration-300" aria-label="Sidebar" id="sidebar-admin">
+<aside class="sidebar transition-all duration-300 z-10" aria-label="Sidebar" id="sidebar-admin">
   <div class="px-3 py-4 overflow-y-auto no-scrollbar rounded bg-gray-50 dark:bg-gray-800 h-full">
     <ul class="space-y-2">
       @foreach($dataSidebar as $key => $sidebar)

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
             $table->string('questions');
-            $table->text('answer');
+            $table->text('answer')->nullable();
             $table->boolean('isActive')->default(true);
             $table->timestamps();
         });
