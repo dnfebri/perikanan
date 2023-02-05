@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -22,10 +23,12 @@ Route::middleware('auth')->group(function () {
     Route::put("/gallery", [GalleryController::class, "update"]);
     Route::delete("/gallery", [GalleryController::class, "destroy"]);
 
-    Route::get("/product", [CategoryController::class, "index"]);
-    Route::post("/product", [CategoryController::class, "save"]);
-    Route::put("/product/{id}", [CategoryController::class, "update"]);
-    Route::delete("/product/{id}", [CategoryController::class, "destroy"]);
+    Route::get("/product", [ProductController::class, "index"]);
+    Route::get("/product/add", [ProductController::class, "add"]);
+    Route::get("/product/{slug}", [ProductController::class, "show"]);
+    Route::post("/product", [ProductController::class, "save"]);
+    Route::put("/product/{id}", [ProductController::class, "update"]);
+    Route::delete("/product/{id}", [ProductController::class, "destroy"]);
 
     Route::get("/product/category", [CategoryController::class, "index"]);
     Route::post("/product/category", [CategoryController::class, "save"]);
