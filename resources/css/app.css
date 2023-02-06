@@ -80,3 +80,14 @@
 .view-answer ul {
   @apply ml-5 list-disc my-2
 }
+
+.view-description ol {
+  @apply ml-4 list-decimal my-2
+}
+.view-description ul {
+  @apply ml-5 list-disc my-2
+}
+
+.view-description h1 {
+  @apply text-2xl font-bold
+}

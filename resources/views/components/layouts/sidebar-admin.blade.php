@@ -11,6 +11,7 @@
     (object)[
       "icon" => "fa-globe",
       "label" => "Home",
+      "active" => "home",
       "menu" => [
         (object)[
           "name" => "Header",
@@ -21,9 +22,10 @@
     (object)[
       "icon" => "fa-shrimp",
       "label" => "Product",
+      "active" => "product",
       "menu" => [
         (object)[
-          "name" => "Kategory",
+          "name" => "Category",
           "url" => "/admin/product/category"
         ],
         (object)[
@@ -35,6 +37,7 @@
     (object)[
       "icon" => "fa-id-card-clip",
       "label" => "About Us",
+      "active" => "about",
       "menu" => [
         (object)[
           "name" => "About",
@@ -58,9 +61,9 @@
   <div class="px-3 py-4 overflow-y-auto no-scrollbar rounded bg-gray-50 dark:bg-gray-800 h-full">
     <ul class="space-y-2">
       @foreach($dataSidebar as $key => $sidebar)
-        <li>
+          <li>
           @if (is_array($sidebar->menu))
-            <button type="button" class="flex items-center w-full p-2 text-base font-normal transition duration-75 rounded-lg group menu-sidebar " aria-controls="{{'dropdown-example' . $key}}" data-collapse-toggle="{{'dropdown-example' . $key}}">
+            <button type="button" class="flex items-center w-full p-2 text-base font-normal transition duration-75 rounded-lg group @if ($sidebar->active === $urlActive) menu-sidebar-active @else menu-sidebar @endif" aria-controls="{{'dropdown-example' . $key}}" data-collapse-toggle="{{'dropdown-example' . $key}}">
               <i class="fa-solid {{$sidebar->icon}} text-xl
                 transition duration-75
                 ">

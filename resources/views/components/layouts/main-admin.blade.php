@@ -7,12 +7,13 @@
   @vite('resources/css/app.css')
   <script src="{{ url('js/flowbite.min.js') }}"></script>
   <link rel="stylesheet" href="{{ url('fontawesome/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url('/css/style.css') }}">
   <script src="{{ url('fontawesome/js/all.min.js') }}"></script>
   @stack("style")
   <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container font-Poppins">
     <x-layouts.navbar-admin/>
     <div class="flex relative">
       <x-layouts.sidebar-admin/>

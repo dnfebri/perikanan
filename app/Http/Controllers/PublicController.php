@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Faq;
 use App\Models\Gallery;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -20,7 +22,12 @@ class PublicController extends Controller
 
     public function product()
     {
-        return view('product');
+        $category = Category::all()->toArray();
+        $data = Product::all()->toArray();
+        return view('product', [
+            "data" => $data,
+            "category" => $category
+        ]);
     }
 
     public function aboutUs()

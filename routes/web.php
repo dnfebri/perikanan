@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
-use App\Models\Gallery;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () { return view('welcome'); });

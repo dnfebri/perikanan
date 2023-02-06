@@ -23,17 +23,18 @@ Route::middleware('auth')->group(function () {
     Route::put("/gallery", [GalleryController::class, "update"]);
     Route::delete("/gallery", [GalleryController::class, "destroy"]);
 
-    Route::get("/product", [ProductController::class, "index"]);
-    Route::get("/product/add", [ProductController::class, "add"]);
-    Route::get("/product/{slug}", [ProductController::class, "show"]);
-    Route::post("/product", [ProductController::class, "save"]);
-    Route::put("/product/{id}", [ProductController::class, "update"]);
-    Route::delete("/product/{id}", [ProductController::class, "destroy"]);
-
     Route::get("/product/category", [CategoryController::class, "index"]);
     Route::post("/product/category", [CategoryController::class, "save"]);
     Route::put("/product/category/{id}", [CategoryController::class, "update"]);
     Route::delete("/product/category/{id}", [CategoryController::class, "destroy"]);
+
+    Route::get("/product", [ProductController::class, "index"]);
+    Route::get("/product/add", [ProductController::class, "add"]);
+    Route::get("/product/edit/{slug}", [ProductController::class, "edit"]);
+    Route::get("/product/{slug}", [ProductController::class, "show"]);
+    Route::post("/product", [ProductController::class, "save"]);
+    Route::put("/product/{slug}", [ProductController::class, "update"]);
+    Route::delete("/product/{id}", [ProductController::class, "destroy"]);
 
     Route::get("/faq", [FaqController::class, "index"]);
     Route::get("/faq/{id}", [FaqController::class, "edit"]);
