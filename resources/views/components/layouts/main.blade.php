@@ -29,7 +29,9 @@
       {{$slot}}
     </div>
   </div>
-  <x-layouts.footer/>
+  @empty($isNav)
+    <x-layouts.footer/>
+  @endempty
   @stack("script")
   <script src="/aos/dist/aos.js"></script>
   <script>

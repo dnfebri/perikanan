@@ -89,5 +89,8 @@
 }
 
 .view-description h1 {
-  @apply text-2xl font-bold
+  @apply text-2xl font-bold mb-6
+}
+.view-description h2 {
+  @apply text-2xl font-bold mb-6
 }

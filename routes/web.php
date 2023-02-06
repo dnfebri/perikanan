@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PublicController::class, 'index']);
 Route::get('/home', [PublicController::class, 'home']);
 Route::get('/product', [PublicController::class, 'product']);
+Route::get('/product/{slug}', [PublicController::class, 'productShow']);
 Route::get('/about-us', [PublicController::class, 'aboutUs']);
 Route::get('/gallery', [PublicController::class, 'gallery']);
 Route::get('/faq', [PublicController::class, 'faq']);

@@ -71,6 +71,13 @@
           @endforeach
         </select>
       </div>
+      <div class="mb-6">
+        <label for="countries" class="block text-sm font-medium text-gray-900 dark:text-white">Active</label>
+        <select id="countries" name="active" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+            <option value="1" @if($data['active'] === 1) selected @endif>Active</option>
+            <option value="0" @if($data['active'] === 0) selected @endif>inActive</option>
+        </select>
+      </div>
       <div class="relative z-0 w-full mb-6 group">
         <Label class="block" for="editor">description :</Label>
         <textarea name="description" id="editor">{!! $data['description'] !!}</textarea>

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('subtitle');
             $table->string('thumbnail')->default('/default-img.png');
             $table->text('image')->default('/default-img.png');
+            $table->boolean('active')->default(true);
             $table->text('description')->nullable();
             $table->timestamps();
         });

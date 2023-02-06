@@ -8,8 +8,8 @@
       <h1>Product is Empty</h1>
     </div>
     @else
-    <div class="my-20">
-      <x-page.product :category="$category" :products="$data" :auth="false"/>
+    <div class="my-10">
+      <x-page.product-show :category="$category" :productcategory="$productCategory" :products="$data" :auth="false"/>
     </div>
     @endif
     </div>

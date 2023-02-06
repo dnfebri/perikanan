@@ -9,7 +9,7 @@
   <div class="py-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
     @if(!$data)
     <div class="py-16 text-center text-3xl font-black">
-      <h1>Product is Still Empty</h1>
+      <h1>Product is Empty</h1>
     </div>
     @else
     <x-page.product :category="$category" :products="$data" :auth="Auth::user()" />

@@ -6,7 +6,7 @@
     </video>
     <div class="absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center my-24 mx-8">
       {{-- <div class="w-full h-full max-w-2xl rounded" style="background-image: url({{ url('images/img_index.png') }})"> --}}
-      <div class="w-full h-full max-w-3xl bg-white/60 blur-md rounded">
+      <div class="w-full h-full max-w-3xl bg-white/70 blur-3xl rounded">
       </div>
     </div>
     <div class="absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center">

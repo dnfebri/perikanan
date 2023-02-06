@@ -1,11 +1,17 @@
 <x-layouts-main-admin>
   <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      Product
-    </h2>
+    <a href="{{ url('admin/product') }}">
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        Product
+      </h2>
+    </a>
     <div>
       <a href="{{ url('admin/product/edit/' . $data['slug']) }}" class="btn-edit">Edit Product</a>
-      <button class="btn-delete">Delete Product</button>
+      <button class="btn-delete" onclick="deleteImageKonfirm(this)">Delete Product</button>
+      <form action="{{ url('admin/product?id=' . $data['id'] ) }}" method="post">
+        @csrf
+        @method('delete')
+      </form>
     </div>
   </x-slot>
 
@@ -15,9 +21,19 @@
       <h1>Product is Still Empty</h1>
     </div>
     @else
-    <x-page.product-show :category="$category" :products="$data" :auth="Auth::user()" />
+    <x-page.product-show :category="$category" :productcategory="$productCategory" :products="$data" :auth="Auth::user()" />
     @endif
   </div>
+  @push('script')
+  <script>
+    const deleteImageKonfirm = (el) => {
+      const hapus = confirm("apakah Anda yakin ?");
+      if (hapus) {
+        el.nextElementSibling.submit();
+      }
+    }
+  </script>
+  @endpush
 </x-layouts-main-admin>
 
 

@@ -22,11 +22,27 @@ class PublicController extends Controller
 
     public function product()
     {
-        $category = Category::all()->toArray();
-        $data = Product::all()->toArray();
+        $category = Category::where('isDelete', false)->get()->toArray();
+        $data = Product::where('active', 1)->orderBy('id', 'DESC')->get()->toArray();
         return view('product', [
             "data" => $data,
             "category" => $category
+        ]);
+    }
+    
+    public function productShow($slug)
+    {
+        $data = Product::where('slug', $slug)->first()->toArray();
+        $category = Category::where('isDelete', false)->get()->toArray();
+        $productCategory = Product::where('category', $data['category'])->orderBy('id', 'DESC')->get()->toArray();
+        if (!$data) {
+            dd($data);
+            return redirect("/product");
+        }
+        return view('product-show', [
+            "data" => $data,
+            "category" => $category,
+            "productCategory" => $productCategory,
         ]);
     }
 

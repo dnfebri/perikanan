@@ -16,7 +16,7 @@ class ProductController extends Controller
             toastr()->success(session('massage'));
         }
         $category = Category::where('isDelete', false)->get();
-        $data = Product::all()->toArray();
+        $data = Product::orderBy('id', 'DESC')->get()->toArray();
         return view("admin/product/index", [
             "data" => $data,
             "category" => $category
@@ -54,6 +54,7 @@ class ProductController extends Controller
             "subtitle" => $request['subtitle'],
             "thumbnail" => "product/" . $namaImageThumbnail,
             "image" => json_encode($arrayImageProduct),
+            "active" => $request['active'],
             "description" => $request['description'],
         ]);
         return redirect("/admin/product")->with('massage', 'Product Created success');
@@ -67,9 +68,11 @@ class ProductController extends Controller
             return redirect("/admin/product");
         }
         $category = Category::where('isDelete', false)->get();
+        $productCategory = Product::where('category', $product['category'])->orderBy('id', 'DESC')->get()->toArray();
         return view("admin/product/show", [
             "data" => $product,
-            "category" => $category
+            "category" => $category,
+            "productCategory" => $productCategory,
         ]);
     }
 
@@ -98,7 +101,7 @@ class ProductController extends Controller
             $request->validate([
                 'thumbnail' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ]);
-            $image_path = public_path('images/') . $product->image;
+            $image_path = public_path('images/') . $product->thumbnail;
             if (File::exists($image_path)) {
                 File::delete($image_path);
             }
@@ -132,8 +135,19 @@ class ProductController extends Controller
                 "subtitle" => $request['subtitle'],
                 "thumbnail" => $IimageThumbnail,
                 "image" => json_encode($arrayImageProduct),
+                "active" => $request['active'],
                 "description" => $request['description'],
             ]);
         return redirect("/admin/product")->with('massage', 'Product Update success');
+    }
+
+    public function destroy(Request $request)
+    {
+        $product = Product::where('id', $request->id)->first();
+        if (!$product) {
+            return redirect("/admin/product");
+        }
+        Product::where('id', $product->id)->delete();
+        return redirect("/admin/product")->with('massage', 'Product Delete success');
     }
 }

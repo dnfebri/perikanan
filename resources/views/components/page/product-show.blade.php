@@ -2,14 +2,19 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
 @endpush
-<div>
+<div class="lg:flex gap-4">
   @if($products)
   {{-- @dd($products) --}}
   <div class="space-y-4">
-    <h2 class="font-black text-3xl">
-      Produk Detail
-    </h2>
-    <div id="carouselExampleControls" class="carousel slide relative" data-bs-ride="carousel">
+    <div class="flex justify-between items-center pb-4">
+      <h2 class="font-black text-3xl">
+        Produk Detail
+      </h2>
+      @if($auth && $products['active'] === 0)
+        <div class="px-4 py-1 text-red-700 border-2 border-red-700">inActive</div>
+      @endif
+    </div>
+    <div id="carouselExampleControls" class="carousel slide relative" data-bs-ride="carousel" data-aos="fade-up">
       <div class="carousel-inner rounded-lg relative w-full overflow-hidden max-h-[35rem] shadow-xl">
         @foreach (json_decode($products['image']) as $key => $item)
           <div class="w-full h-96 @if($key === 0) active @endif carousel-item relative float-left overflow-hidden">
@@ -36,19 +41,43 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <div>
-      <h2 class="font-black text-3xl">
+    <div class="pt-4">
+      <h2 class="font-black text-3xl" data-aos="fade-up">
         {{$products['name']}}
       </h2>
-      <div class="view-description py-4">
+      <div class="view-description py-4" data-aos="fade-up">
         {!! $products['description'] !!}
       </div>
     </div>
   </div>
-  <div class="py-12">
-    <h2 class="font-black text-xl">
+  <div class="mt-12 lg:pt-4 min-w-[18rem]">
+    <h2 class="font-black text-xl mb-6" data-aos="fade-up">
       Daftar Produk Terkait
     </h2>
+    <div class="grid gap-4">
+      @php
+        $n = 0;
+      @endphp
+      @foreach($productcategory as $key => $row)
+        @if($row['id'] !== $products['id'] && $n < 3)
+          <div data-aos="fade-up"
+            class="mx-auto w-full max-w-xs h-[20rem] border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden"
+          >
+            <a @if($auth)
+                href="{{ url('admin/product/' . $row['slug']) }}"
+              @else
+                href="{{ url('product/' . $row['slug']) }}"
+              @endif
+            >
+              <img src="{{ url('images/' . $row['thumbnail']) }}" alt="{{ $row['name'] }}" class="w-full h-full object-cover object-center">
+            </a>
+          </div>
+          @php
+            $n++
+          @endphp
+        @endif
+      @endforeach
+    </div>
   </div>
   @endif
 </div>
