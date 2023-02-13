@@ -91,30 +91,22 @@
   </div> --}}
 </nav>
 <div id="menuMobile" class="menuMobile fixed top-0 bottom-0 right-0 hidden min-h-[100rem] z-40">
-  <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-  <div class="relative">
-    <button class="navbar-close">
-      <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
+  <div class="navbar-backdrop fixed inset-0 bg-gray-800/10 opacity-25"></div>
+  <div class="relative bg-white">
+    <div class="p-4">
+      <button class="navbar-close">
+        <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
     <div>
       <ul>
-        <li class="mb-1">
-          <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Home</a>
-        </li>
-        <li class="mb-1">
-          <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">About Us</a>
-        </li>
-        <li class="mb-1">
-          <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Services</a>
-        </li>
-        <li class="mb-1">
-          <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Pricing</a>
-        </li>
-        <li class="mb-1">
-          <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Contact</a>
-        </li>
+        @foreach ($dataMenu as $row)
+          <li class="mb-1">
+            <a href="{{$row->url}}" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">{{$row->label}}</a>
+          </li>
+        @endforeach
       </ul>
     </div>
   </div>
