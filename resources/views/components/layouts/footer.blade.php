@@ -27,8 +27,8 @@
     ],
     (object)[
       "icon" => "fa-circle-question",
-      "label" => "Faqs",
-      "url" => "/faqs",
+      "label" => "Faq",
+      "url" => "/faq",
     ],
   ];
 @endphp
@@ -42,20 +42,22 @@
         </div>
         <div class="md:px-2">
           <h1 class="text-lg text-secondary-1 font-bold">Contact Us</h1>
-          <div class="grid gap-2 my-2">
+          <div class="grid gap-4 my-2 max-w-xs">
             <div>
-              <p>4517 Washington Ave. Manchester,</p>
-              <p>Kentucky 39495</p>
+              <a target="_blank"
+                href="https://www.google.co.id/maps/search/Sambikerep+Highway,+Lontar,+Sambikerep+District+60225.+Surabaya+City,+Capital+of+East+Java,+Indonesia/@-7.2898788,112.6796867,15z/data=!3m1!4b1"
+              >
+                <p>Sambikerep Highway, Lontar, Sambikerep District 60225. Surabaya City, Capital of East Java, Indonesia</p>
+              </a>
             </div>
             <div>
-              <p>deanna.curtis@example.com</p>
-              <p>(671) 555-0110</p>
+              <p>+62 821-4354-9969</p>
             </div>
           </div>
         </div>
         <div>
           <h1 class="text-lg text-secondary-1 font-bold">Userfull Links</h1>
-          <div class="my-2 grid grid-rows-4 grid-flow-col gap-2">
+          <div class="my-2 grid grid-rows-4 grid-flow-col gap-2 max-w-sm">
             @foreach($dataMenu as $key => $row)
               <a href="{{ url($row->url) }}">
                 <p>{{ $row->label }}</p>
@@ -65,7 +67,7 @@
         </div>
       </div>
       <div class="border-t text-center pt-4">
-        <p>Copyright © 2020. All right reserved</p>
+        <p>Copyright © 2023. All right reserved</p>
       </div>
     </div>
   </div>

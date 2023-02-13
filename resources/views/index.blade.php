@@ -36,6 +36,31 @@
     <div id="loading" class="hidden absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center bg-brand-2/50">
       <img src="{{ url('gif/loading-4.gif') }}" alt="Loading" class="w-56">
     </div>
+    <div class="absolute bottom-32 right-0">
+      {{-- <x-link-sosmed/> --}}
+      <div class="text-xl p-4 flex flex-col items-center gap-6 bg-white rounded-2xl rounded-r-none 
+        w-16 hover:w-64 transition-all duration-300 text-white group"
+      >
+        <a href="https://www.facebook.com/?hl=id" target="_blank" class="bg-brand-1 rounded-full w-full flex items-center overflow-hidden">
+          <div class="bg-white text-brand-2 h-8 w-8 group-hover:w-9 flex justify-center items-center rounded-full border-2 border-brand-2">
+            <i class="fa-brands fa-facebook-f"></i>
+          </div>
+          <p class="text-center text-sm w-0 group-hover:w-full transition-all duration-300">Nusantara_sea</p>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" class="bg-brand-1 rounded-full w-full flex items-center overflow-hidden">
+          <div class="bg-white text-brand-2 h-8 w-8 group-hover:w-9 flex justify-center items-center rounded-full border-2 border-brand-2">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+          <p class="text-center text-sm w-0 group-hover:w-full transition-all duration-300">Nusantara_sea</p>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank" class="bg-brand-1 rounded-full w-full flex items-center overflow-hidden">
+          <div class="bg-white text-brand-2 h-8 w-8 group-hover:w-9 flex justify-center items-center rounded-full border-2 border-brand-2">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </div>
+          <p class="text-center text-sm w-0 group-hover:w-full transition-all duration-300">Nusantara_sea</p>
+        </a>
+      </div>
+    </div>
     <div class="mb-10 fixed bottom-0 right-0 left-0 text-center">
       <a href="{{ url('home', []) }}" onclick="callLoading()" 
         class="py-2 px-5 md:py-4 md:px-10 drop-shadow-lg border-2 text-white 
