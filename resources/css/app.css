@@ -26,6 +26,10 @@
   @apply text-brand-1 md:text-black md:bg-transparent md:p-0 md:dark:text-white dark:bg-brand-1 md:dark:bg-transparent md:border-b-2 border-brand-1 md:border-black
 }
 
+.menuMobile {
+  @apply w-56 bg-white
+}
+
 .sidebar {
   @apply absolute bottom-0 top-0 w-0 overflow-hidden 
           md:static md:w-64

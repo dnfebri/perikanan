@@ -13,6 +13,9 @@ Route::get('/about-us', [PublicController::class, 'aboutUs']);
 Route::get('/gallery', [PublicController::class, 'gallery']);
 Route::get('/faq', [PublicController::class, 'faq']);
 Route::get('/inquiry', [PublicController::class, 'inquiry']);
+Route::get('/test', function () {
+    return view("test");
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
