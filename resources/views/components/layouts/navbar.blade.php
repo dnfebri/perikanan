@@ -60,7 +60,7 @@
         @endforeach
       </ul>
     </div>
-    <div class="absolute md:hidden top-0 bottom-0 right-0 flex items-center ">
+    <div class="absolute md:hidden top-0 bottom-0 right-0 flex items-center mr-4">
       <button class="navbar-burger">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -69,7 +69,7 @@
     </div>
   </div>
 
-
+{{-- Example Navbar View Mobile --}}
   {{-- <div class="md:hidden fixed bottom-0 right-0 left-0 flex items-center px-6 overflow-hidden bg-white border border-brand-1 rounded-t-2xl w-full">
     <div class="relative flex items-center justify-around w-full" id="navMobile">
       @foreach ($dataMenu as $idx => $menu)
@@ -103,8 +103,8 @@
     <div>
       <ul>
         @foreach ($dataMenu as $row)
-          <li class="mb-1">
-            <a href="{{$row->url}}" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">{{$row->label}}</a>
+          <li class="mb-1 @if (explode("/",$row->url)[1] === $urlActive) menu-nav-active  @else menu-nav @endif">
+            <a href="{{$row->url}}" class="block p-4 text-sm font-semibold ">{{$row->label}}</a>
           </li>
         @endforeach
       </ul>
