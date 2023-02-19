@@ -14,7 +14,7 @@
   <title>{{ $title ?? config('app.name', 'Laravel2') }}</title>
 </head>
 <body class="bg-fixed bg-cover bg-center font-Poppins" style="background-image: url(/images/bg_body.png)">
-  <div class="@empty($isNav) w-full max-w-7xl mx-auto overflow-hidden @endempty">
+  <div class="@empty($isNav) w-full max-w-8xl mx-auto overflow-hidden @endempty">
     @empty($isNav)
       <x-layouts.navbar/>
     @endempty
