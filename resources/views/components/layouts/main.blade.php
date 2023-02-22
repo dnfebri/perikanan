@@ -14,18 +14,18 @@
   <title>{{ $title ?? config('app.name', 'Laravel2') }}</title>
 </head>
 <body class="bg-fixed bg-cover bg-center font-Poppins" style="background-image: url(/images/bg_body.png)">
-  <div class="@empty($isNav) w-full max-w-8xl mx-auto overflow-hidden @endempty">
+  <div class="@empty($isNav) w-full max-w-[90rem] mx-auto overflow-hidden @endempty">
     @empty($isNav)
       <x-layouts.navbar/>
     @endempty
     @if (isset($header))
-        <header class="w-full h-full bg-cover bg-center" style="background-image: url({{$bgHeader ?? '/images/bgHeader.png'}})">
-            <div class="bg-brand-1/90">
-              {{ $header }}
-            </div>
-        </header>
+      <header class="w-full h-full bg-cover bg-center" style="background-image: url({{$bgHeader ?? '/images/bgHeader.png'}})">
+        <div class="bg-brand-1/90">
+          {{ $header }}
+        </div>
+      </header>
     @endif
-    <div class="min-h-screen px-4">
+    <div class="min-h-screen">
       {{$slot}}
     </div>
   </div>

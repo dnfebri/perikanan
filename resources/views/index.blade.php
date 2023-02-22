@@ -1,3 +1,22 @@
+@php
+  $sosmed = [
+    (object)[
+      "icon" => "fa-facebook-f",
+      "label" => "Nusantara_sea",
+      "href" => "https://www.facebook.com/?hl=idya",
+    ],
+    (object)[
+      "icon" => "fa-instagram",
+      "label" => "Nusantara_sea",
+      "href" => "https://www.instagram.com/",
+    ],
+    (object)[
+      "icon" => "fa-linkedin-in",
+      "label" => "Nusantara_sea",
+      "href" => "https://www.linkedin.com/",
+    ],
+  ]
+@endphp
 <x-layouts.main isNav=false>
   @push('style')
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,24 +60,14 @@
       <div class="text-xl p-4 flex flex-col items-center gap-6 bg-white rounded-2xl rounded-r-none 
         w-16 hover:w-64 transition-all duration-300 text-white group"
       >
-        <a href="https://www.facebook.com/?hl=id" target="_blank" class="bg-brand-1 rounded-full w-full flex items-center overflow-hidden">
-          <div class="bg-white text-brand-2 h-8 w-8 group-hover:w-9 flex justify-center items-center rounded-full border-2 border-brand-2">
-            <i class="fa-brands fa-facebook-f"></i>
-          </div>
-          <p class="text-center text-sm w-0 group-hover:w-full transition-all duration-300">Nusantara_sea</p>
-        </a>
-        <a href="https://www.instagram.com/" target="_blank" class="bg-brand-1 rounded-full w-full flex items-center overflow-hidden">
-          <div class="bg-white text-brand-2 h-8 w-8 group-hover:w-9 flex justify-center items-center rounded-full border-2 border-brand-2">
-            <i class="fa-brands fa-instagram"></i>
-          </div>
-          <p class="text-center text-sm w-0 group-hover:w-full transition-all duration-300">Nusantara_sea</p>
-        </a>
-        <a href="https://www.linkedin.com/" target="_blank" class="bg-brand-1 rounded-full w-full flex items-center overflow-hidden">
-          <div class="bg-white text-brand-2 h-8 w-8 group-hover:w-9 flex justify-center items-center rounded-full border-2 border-brand-2">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </div>
-          <p class="text-center text-sm w-0 group-hover:w-full transition-all duration-300">Nusantara_sea</p>
-        </a>
+        @foreach ($sosmed as $row)
+          <a href="{{$row->href}}" target="_blank" class="bg-brand-1 rounded-full w-full flex items-center overflow-hidden">
+            <div class="bg-white text-brand-2 h-8 w-8 group-hover:w-9 flex justify-center items-center rounded-full border-2 border-brand-2">
+              <i class="fa-brands {{$row->icon}}"></i>
+            </div>
+            <p class="text-center text-sm w-0 group-hover:w-full transition-all duration-300">{{$row->label}}</p>
+          </a>
+        @endforeach
       </div>
     </div>
     <div class="mb-10 fixed bottom-0 right-0 left-0 text-center">
