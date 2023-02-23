@@ -1,6 +1,6 @@
 @push('style')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 @endpush
 <div class="lg:flex gap-4">
   @if($products)
@@ -14,32 +14,17 @@
         <div class="px-4 py-1 text-red-700 border-2 border-red-700">inActive</div>
       @endif
     </div>
-    <div id="carouselExampleControls" class="carousel slide relative" data-bs-ride="carousel" data-aos="fade-up">
-      <div class="carousel-inner rounded-lg relative w-full overflow-hidden max-h-[35rem] shadow-xl">
+    <div class="swiper mySwiper" data-aos="fade-up">
+      <div class="swiper-wrapper rounded-lg w-full max-w-sm max-h-[35rem] shadow-xl">
         @foreach (json_decode($products['image']) as $key => $item)
-          <div class="w-full h-96 @if($key === 0) active @endif carousel-item relative float-left overflow-hidden">
+          <div class="swiper-slide w-full h-96 @if($key === 0) active @endif float-left overflow-hidden">
             <img src="{{ url('images/' . $item) }}" alt="Perikanan" class="w-full h-full object-cover object-center">
           </div>
         @endforeach
       </div>
-      <button
-        class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-        type="button"
-        data-bs-target="#carouselExampleControls"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-        type="button"
-        data-bs-target="#carouselExampleControls"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
     <div class="pt-4">
       <h2 class="font-black text-3xl" data-aos="fade-up">
@@ -82,5 +67,27 @@
   @endif
 </div>
 @push('script')
-<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    // loop: true,
+    // autoplay: {
+    //   delay: 2500,
+    //   disableOnInteraction: false,
+    // },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
 @endpush
