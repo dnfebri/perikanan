@@ -2,10 +2,22 @@
   <div class="max-w-md text-brand-2 space-y-4">
     <h1 class="text-3xl font-bold text-black" data-aos="fade-up">Our Product</h1>
     <p class="max-w-[13rem]" data-aos="fade-up">We offer the best variety of dishes, with the main ingredients always fresh with the best quality</p>
+    <div class="min-w-[15rem] font-bold" data-aos="fade-up" id="category-select" data-url="{{ url('category-select') }}">
+      <button class="w-full py-2 border border-brand-2"
+        onclick="hendelCategoryAll()"
+      >
+        All Category
+      </button>
+    </div>
     @if ($category)
       @foreach ($category as $row)
-      <div class="min-w-[15rem] font-bold" data-aos="fade-up">
-        <button class="w-full py-2 border border-brand-2">{{ $row['name'] }}</button>
+      <div class="min-w-[15rem] font-bold" data-aos="fade-up" id="category-select" data-url="{{ url('category-select') }}">
+        <button class="w-full py-2 border border-brand-2"
+          value="{{$row['id']}}"
+          onclick="hendelCategory(this)"
+        >
+          {{ $row['name'] }}
+        </button>
       </div>
       @endforeach  
     @endif
@@ -16,6 +28,7 @@
         @foreach ($products as $row)
         <div data-aos="fade-up"
           class="relative mx-auto w-full max-w-xs h-[20rem] border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden"
+          id="product" product-id="{{$row['category']}}"
         >
           <a @if($auth)
               href="{{ url('admin/product/' . $row['slug']) }}"
@@ -34,3 +47,24 @@
     </div>
   </div>
 </div>
+@push('script')
+  <script>
+    const categoryUrl = document.getElementById("category-select").getAttribute("data-url");
+    const product = document.querySelectorAll("#product");
+    const hendelCategory = (el) => {
+      product.forEach(data => {
+        data.classList.remove("hidden");
+      });
+      product.forEach(data => {
+        if (data.getAttribute("product-id") != el.value) {
+          data.classList.add("hidden");
+        }
+      });
+    }
+    const hendelCategoryAll = () => {
+      product.forEach(data => {
+        data.classList.remove("hidden");
+      });
+    }
+  </script>
+@endpush
